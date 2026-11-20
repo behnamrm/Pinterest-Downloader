@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clipnest</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <img src="../icons/icon-48.png" alt="" width="28" height="28">
+    <div>
+      <h1>Clipnest</h1>
+      <p class="sub">Video downloader for Pinterest</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="current" class="card" aria-live="polite">
+      <div id="state-idle" class="hint">
+        Open a Pinterest video pin, or paste a pin link below.
+      </div>
+      <div id="state-loading" class="hint" hidden>
+        <span class="spinner" aria-hidden="true"></span> Looking for videos…
+      </div>
+      <div id="state-error" class="error" hidden></div>
+      <div id="state-result" hidden>
+        <div class="pin">
+          <img id="thumb" alt="" hidden>
+          <p id="title" class="title"></p>
+        </div>
+        <ul id="videos" class="videos"></ul>
+      </div>
+    </section>
+
+    <form id="link-form" class="link-form" autocomplete="off">
+      <label for="link" class="label">Pin link</label>
+      <div class="row">
+        <input id="link" type="url" placeholder="pinterest.com/pin/… or pin.it/…" required>
+        <button type="submit" class="btn secondary">Find</button>
+      </div>
+    </form>
+
+    <details class="settings">
+      <summary>Settings</summary>
+      <label class="check"><input type="checkbox" id="opt-subfolder"> Save into a “Pinterest” folder</label>
+      <label class="check"><input type="checkbox" id="opt-saveas"> Ask where to save each file</label>
+    </details>
+  </main>
+
+  <footer>
+    Download only videos you own or have permission to save.<br>
+    Not affiliated with or endorsed by Pinterest, Inc.
+  </footer>
+
+  <script src="../lib/resolver.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Clipnest – Video Downloader for Pinterest",
+  "short_name": "Clipnest",
+  "version": "1.0.0",
+  "description": "Download Pinterest videos as MP4 files in one click. Works on pins, idea pins and pin.it links.",
+  "minimum_chrome_version": "110",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Download Pinterest video",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["downloads", "storage", "contextMenus"],
+  "host_permissions": [
+    "https://*.pinterest.com/*",
+    "https://pin.it/*",
+    "https://*.pinimg.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.pinterest.com/*",
+        "https://*.pinterest.ca/*",
+        "https://*.pinterest.co.uk/*",
+        "https://*.pinterest.com.au/*",
+        "https://*.pinterest.de/*",
+        "https://*.pinterest.fr/*",
+        "https://*.pinterest.es/*",
+        "https://*.pinterest.it/*",
+        "https://*.pinterest.jp/*",
+        "https://*.pinterest.com.mx/*",
+        "https://*.pinterest.nz/*",
+        "https://*.pinterest.ie/*",
+        "https://*.pinterest.at/*",
+        "https://*.pinterest.ch/*",
+        "https://*.pinterest.pt/*",
+        "https://*.pinterest.se/*",
+        "https://*.pinterest.dk/*",
+        "https://*.pinterest.cl/*",
+        "https://*.pinterest.co.kr/*",
+        "https://*.pinterest.ph/*"
+      ],
+      "js": ["lib/resolver.js", "content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

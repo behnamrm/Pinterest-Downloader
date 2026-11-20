@@ -1,0 +1,68 @@
+.clipnest-btn {
+  all: initial;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 0;
+  background: #1f2a44;
+  color: #fff;
+  font: 600 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+  transition: transform 0.12s ease, background-color 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+  z-index: 2147483000;
+}
+.clipnest-btn:hover { background: #0f766e; transform: translateY(-1px); }
+.clipnest-btn:focus-visible { outline: 3px solid #5eead4; outline-offset: 2px; }
+.clipnest-btn svg { flex: none; }
+.clipnest-btn[hidden] { display: none !important; }
+
+.clipnest-btn--overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.88;
+}
+.clipnest-btn--overlay:hover { opacity: 1; }
+
+.clipnest-btn--floating {
+  position: fixed;
+  left: 96px; /* clear of Pinterest's left navigation rail */
+  bottom: 24px;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+@media (max-width: 820px) { .clipnest-btn--floating { left: 16px; bottom: 80px; } }
+
+.clipnest-btn[data-state="busy"] { background: #475569; cursor: progress; }
+.clipnest-btn[data-state="done"] { background: #15803d; }
+.clipnest-btn[data-state="error"] { background: #b91c1c; }
+
+.clipnest-toast {
+  all: initial;
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 20px);
+  max-width: min(480px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: #1f2a44;
+  color: #fff;
+  font: 500 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2147483001;
+}
+.clipnest-toast--show { opacity: 1; transform: translate(-50%, 0); }
+.clipnest-toast[data-kind="success"] { background: #15803d; }
+.clipnest-toast[data-kind="error"] { background: #b91c1c; }
